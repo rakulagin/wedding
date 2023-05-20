@@ -5,15 +5,15 @@ import flowers from './img/flowers.png'
 function App() {
   return (
     <div className="App">
-      <div className='header'></div>
-      <div className="content">
-        <div>
-          <img className='img' src={flowers} alt="flowers"/>
-        </div>
-        свадьба
+      <img className='img' src={flowers} alt="flowers"/>
+      <div className='container'>
+        <h1>Привет!</h1>
+        <p>С тобой говорит Рома и Алена. Нам надо узнать кто же ты. Введи свой номер телефона.</p>
         <form action="#">
           <PhoneForm/>
-          <button>Отправить</button>
+          <div>
+            <button>Отправить</button>
+          </div>
         </form>
       </div>
     </div>

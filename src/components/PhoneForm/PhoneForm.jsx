@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './PhoneForm.module.css'
 
 const PhoneInput = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -40,6 +41,7 @@ const PhoneInput = () => {
 
   return (
     <input
+      className={styles.input}
       type="tel"
       value={phoneNumber}
       onChange={handleChange}
