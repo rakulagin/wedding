@@ -9,7 +9,7 @@
 .header {
   height: 50px;
   background-color: #5C3B21;
-  box-shadow: 0px 23px 64px 12px #a06e6e;
+  box-shadow: 0 23px 64px 12px #a06e6e;
 }
 
 .img {
