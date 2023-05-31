@@ -28,6 +28,10 @@ dd {
   margin: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -37,8 +41,8 @@ body {
 
   max-width: 600px;
   margin: 0 auto;
-  background-color: #ffe9e2;
-  min-height: 100vh;
+  /*background-color: #ffe9e2;*/
+  /*min-height: 100vh;*/
 }
 
 .container {

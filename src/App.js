@@ -1,17 +1,18 @@
 import React from "react";
 import { Routes, Route} from 'react-router-dom'
 
-import './App.css';
 
 import MainPage from "./pages/MainPage/MainPage";
+import InvitePage from "./pages/InvitePage/InvitePage";
 
 
 function App() {
 
   return (
-    <div className="App">
-      <MainPage/>
-    </div>
+    <Routes>
+      <Route index element={<MainPage/>}/>
+      <Route path="invite" element={<InvitePage/>}/>
+    </Routes>
   );
 }
 
