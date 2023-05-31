@@ -1,20 +1,16 @@
 import './App.css';
-import PhoneForm from "./components/PhoneForm/PhoneForm";
 import flowers from './img/flowers.png'
+import InputForm from "./components/InputForm/InputForm";
 
 function App() {
+
   return (
     <div className="App">
       <img className='img' src={flowers} alt="flowers"/>
       <div className='container'>
-        <h1>Привет!</h1>
-        <p>С тобой говорит Рома и Алена. Нам надо узнать кто же ты. Введи свой номер телефона.</p>
-        <form action="#">
-          <PhoneForm/>
-          <div>
-            <button>Отправить</button>
-          </div>
-        </form>
+        <h1 className='app-header'>Привет!</h1>
+        <p className='app-text'>С&nbsp;тобой говорит Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело. Для этого введи свое имя и&nbsp;фамилию полностью.</p>
+        <InputForm/>
       </div>
     </div>
   );
