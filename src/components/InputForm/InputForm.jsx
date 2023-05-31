@@ -1,23 +1,16 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router-dom";
 
 import styles from './InputForm.module.css'
 
-const InputForm = () => {
-
-  const navigate = useNavigate()
+const InputForm = ({onButtonSubmit}) => {
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data)
-    navigate("/invite")
-  };
 
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit(onSubmit)}>
+      onSubmit={handleSubmit(onButtonSubmit)}>
 
       <input
         placeholder="Имя"

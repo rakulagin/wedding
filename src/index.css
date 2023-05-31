@@ -24,12 +24,18 @@ figure,
 figcaption,
 blockquote,
 dl,
-dd {
+dd,
+input {
   margin: 0;
+  padding: 0;
 }
 
 h1 {
   text-align: center;
+}
+
+input {
+  display: block;
 }
 
 body {

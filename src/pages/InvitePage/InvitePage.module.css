@@ -2,3 +2,22 @@
     background-color: #ffe9e2;
     min-height: 100vh;
 }
+
+.header {
+    height: 50px;
+    background-color: #b56c52;
+}
+
+.photo {
+    height: 400px;
+    background-color: lightblue;
+}
+
+.invite {
+    background-color: lightgreen;
+}
+
+.question {
+    background-color: teal;
+}
+
