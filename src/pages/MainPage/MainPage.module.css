@@ -19,3 +19,22 @@ img {
 .text {
     margin-bottom: 20px;
 }
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    height: 100vh;
+    width: 100%;
+    font-size: 40px;
+    z-index: 4;
+}
+
+.loading__inner {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+}
