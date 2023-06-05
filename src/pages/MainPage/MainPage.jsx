@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'
+import DataContext from "../../UserInfoContext";
 
 
 import flowers from "../../img/flowers.png";
@@ -12,47 +13,53 @@ const MainPage = () => {
 
   const navigate = useNavigate()
 
-  const [currentUser, setCurrentUser] = useState(null);
+
+  const {userInfo, setUserInfo} = useContext(DataContext)
 
   const onButtonSubmit = (data) => {
-    const {firstName, surName} = data
     console.log("data send -> ", data)
     axios.post('http://backend.rakulagin.com/invite', data)
       .then((data) => {
-
-        if(data) {
+        if (data.data._id) {
           console.log(data.data)
-          setCurrentUser(data.data)
+          setUserInfo(data.data)
+          navigate('/invite')
         } else {
           console.log('не найден')
         }
       })
   }
 
-
+  console.log("userInfo ->>>", userInfo)
 
   return (
     <div className={styles.page}>
-          <div className={styles.img}>
-            <img src={flowers} alt="flowers"/>
-          </div>
-          <div className='container'>
-            <h1 className={styles.header}>Привет!</h1>
-            <p className={styles.text}>С&nbsp;тобой говорит Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
-              Для
-              этого введи свое имя и&nbsp;фамилию полностью.</p>
-            <InputForm
-              onButtonSubmit={onButtonSubmit}
-            />
-          </div>
-      {currentUser &&
-        <>
-        <div>{currentUser.firstName}</div>
-        <div>{currentUser.surName}</div>
-          <div><img src={currentUser.img} alt=""/></div>
-          <div><img src={`http://backend.rakulagin.com${currentUser.img}`} alt=""/></div>
-        </>
-      }
+      <div className={styles.img}>
+        <img src={flowers} alt="flowers"/>
+      </div>
+      <div className='container'>
+        <h1 className={styles.header}>Привет!</h1>
+        <p className={styles.text}>С&nbsp;тобой говорит Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
+          Для этого введи свое имя и&nbsp;фамилию полностью.</p>
+        <InputForm
+          onButtonSubmit={onButtonSubmit}
+        />
+      </div>
+
+      {/*<div className={styles.notFound}>*/}
+      {/*  Ой! Мы не нашли тебя в списке. Проверь, правильно ли ты ввел данные, или свяжись с нами по ссылке*/}
+      {/*</div>*/}
+
+
+      {/*{currentUser &&*/}
+      {/*  <>*/}
+      {/*  <div>{currentUser.firstName}</div>*/}
+      {/*  <div>{currentUser.surName}</div>*/}
+      {/*    <div><img src={currentUser.img} alt=""/></div>*/}
+      {/*    <div><img src={`http://backend.rakulagin.com${currentUser.img}`} alt=""/></div>*/}
+      {/*  </>*/}
+      {/*}*/}
+
     </div>
   );
 };

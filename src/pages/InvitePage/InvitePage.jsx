@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import styles from "./InvitePage.module.css"
-import Modal from "../../components/Modal/Modal";
+
+import DataContext from "../../UserInfoContext";
 
 const InvitePage = () => {
+
+  const {userInfo, setUserInfo} = useContext(DataContext)
+
+  console.log(userInfo.img)
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
         header
-        <Modal/>
       </div>
       <div className={styles.photo}>
-        photo
+        <img src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
       </div>
       <div className={styles.invite}>
         <h3>Дорогая Алена</h3>
+        <p>{userInfo.firstName}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illum iure non! Ab aliquam asperiores in ipsum maiores omnis perferendis quis, vel veniam. Ab consectetur doloribus ea, est exercitationem fuga.</p>
       </div>
       <div className={styles.question}>
