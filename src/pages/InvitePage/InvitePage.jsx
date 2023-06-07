@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useNavigate} from "react-router-dom";
+
+import DataContext from "../../UserInfoContext";
 
 import styles from "./InvitePage.module.css"
 
@@ -7,7 +9,7 @@ import styles from "./InvitePage.module.css"
 const InvitePage = () => {
 
   const navigate = useNavigate()
-  // const {userInfo, setUserInfo} = useContext(DataContext)
+  const {userInfo, setUserInfo} = useContext(DataContext)
   // console.log(userInfo.img)
   const [user, setUser] = useState({})
 

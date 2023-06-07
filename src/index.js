@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import DataContext from "./UserInfoContext";
 
 import './index.css';
@@ -21,25 +21,14 @@ function Main() {
       vine: '',
       spirit: '',
 
-      // user: {
-      //   name: "",
-      //   gender: "",
-      //   year: "",
-      //   relationship: "",
-      //   city: "",
-      //   height: "",
-      //   weight: "",
-      //   education: ""
-      // },
-      // answers: []
     }
   )
 
   return (
     <DataContext.Provider value={{userInfo, setUserInfo}}>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </DataContext.Provider>
   )
 }
