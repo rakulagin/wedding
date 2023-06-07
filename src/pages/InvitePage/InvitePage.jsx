@@ -1,18 +1,26 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 
 import styles from "./InvitePage.module.css"
 
-import DataContext from "../../UserInfoContext";
 
 const InvitePage = () => {
 
+  const navigate = useNavigate()
   // const {userInfo, setUserInfo} = useContext(DataContext)
   // console.log(userInfo.img)
   const [user, setUser] = useState({})
 
+  const clear = () => {
+    localStorage.clear()
+  }
+
   useEffect(()=>{
     const savedUser = JSON.parse(localStorage.getItem('user'))
     // console.log(savedUser)
+    if(!savedUser) {
+      return navigate('/')
+    }
     setUser(savedUser)
   }, [])
 
@@ -36,6 +44,7 @@ const InvitePage = () => {
         <input type="radio" name="" id=""/>
         <button>send</button>
       </div>
+      <button onClick={clear}>очистить</button>
     </div>
   );
 };
