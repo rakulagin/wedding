@@ -14,23 +14,36 @@ const MainPage = () => {
   const navigate = useNavigate()
 
 
-  const {userInfo, setUserInfo} = useContext(DataContext)
+  // const {userInfo, setUserInfo} = useContext(DataContext)
 
   const onButtonSubmit = (data) => {
-    console.log("data send -> ", data)
-    axios.post('http://backend.rakulagin.com/invite', data)
-      .then((data) => {
-        if (data.data._id) {
-          console.log(data.data)
-          setUserInfo(data.data)
+    try {
+      console.log("data send -> ", data)
+      axios.post('http://backend.rakulagin.com/invite', data)
+        .then((data) => {
+          if(!data.data._id) {
+            return console.log('не найден')
+          }
+          console.log("data receive <--", data.data)
+          // setUserInfo(data.data)
+          // localStorage.setItem('id',data.data._id)
+          localStorage.setItem('user', JSON.stringify({...data.data, auth: true}))
           navigate('/invite')
-        } else {
-          console.log('не найден')
-        }
-      })
+
+          // if (data.data._id) {
+          //   console.log(data.data)
+          //   setUserInfo(data.data)
+          //   // navigate('/invite')
+          // } else {
+          //   console.log('не найден')
+          // }
+        })
+    } catch (err) {
+      console.log('ошибка получения данных', err)
+    }
   }
 
-  console.log("userInfo ->>>", userInfo)
+
 
   return (
     <div className={styles.page}>
@@ -39,7 +52,7 @@ const MainPage = () => {
       </div>
       <div className='container'>
         <h1 className={styles.header}>Привет!</h1>
-        <p className={styles.text}>С&nbsp;тобой говорит Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
+        <p className={styles.text}>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
           Для этого введи свое имя и&nbsp;фамилию полностью.</p>
         <InputForm
           onButtonSubmit={onButtonSubmit}
