@@ -12,7 +12,7 @@ const InvitePage = () => {
 
   useEffect(()=>{
     const savedUser = JSON.parse(localStorage.getItem('user'))
-    console.log(savedUser)
+    // console.log(savedUser)
     setUser(savedUser)
   }, [])
 
@@ -25,9 +25,9 @@ const InvitePage = () => {
         <img src={`http://backend.rakulagin.com${user.img}`} alt="наше фото"/>
       </div>
       <div className={styles.invite}>
-        <h3>Дорогая Алена</h3>
-        <p>{user.firstName}</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illum iure non! Ab aliquam asperiores in ipsum maiores omnis perferendis quis, vel veniam. Ab consectetur doloribus ea, est exercitationem fuga.</p>
+        <h3> {user.nickname}!</h3>
+        {/*<p>{user.firstName}</p>*/}
+        <p>Это приглашение на нашу свадьбу! Если ты это читаешь, значит ты в списке тех, с кем мы хотим разделить наш особенный день!</p>
       </div>
       <div className={styles.question}>
         <input type="radio" name="" id=""/>

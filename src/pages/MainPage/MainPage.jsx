@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'
 import DataContext from "../../UserInfoContext";
@@ -43,7 +43,12 @@ const MainPage = () => {
     }
   }
 
-
+  useEffect(()=> {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if(user) {
+      navigate('/invite')
+    }
+  }, [])
 
   return (
     <div className={styles.page}>
