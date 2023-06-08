@@ -15,6 +15,7 @@ const InvitePage = () => {
 
   const clear = () => {
     localStorage.clear()
+    navigate('/')
   }
 
   useEffect(()=>{
