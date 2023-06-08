@@ -4,6 +4,8 @@ import {useNavigate} from "react-router-dom";
 import DataContext from "../../UserInfoContext";
 
 import styles from "./InvitePage.module.css"
+import flowers from "../../img/flowers.png";
+import InputForm from "../../components/InputForm/InputForm";
 
 
 const InvitePage = () => {
@@ -18,10 +20,10 @@ const InvitePage = () => {
     navigate('/')
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem('user'))
     // console.log(savedUser)
-    if(!savedUser) {
+    if (!savedUser) {
       return navigate('/')
     }
     setUser(savedUser)
@@ -29,26 +31,37 @@ const InvitePage = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.header}>
-        header
+      <div className={styles.menu}>
+
       </div>
-      <div className={styles.photo}>
-        <img src={`http://backend.rakulagin.com${user.img}`} alt="наше фото"/>
+      <img className={styles.img} src={`http://backend.rakulagin.com${user.img}`} alt="наше фото"/>
+      <div className={styles.content}>
+        <h3 className={styles.header}> {user.nickname}!</h3>
+        <p className={styles.text}>Это приглашение на нашу свадьбу! Если ты это читаешь, значит ты в списке тех,
+          с кем мы хотим разделить наш особенный день!</p>
+        <p className={styles.text}>Мы ждем тебя с ТВОЕЙ ВТОРОЙ ПОЛОВИНКОЙ
+          11 августа, в пятницу, в ЗАГС Оттябрьского района,
+          "Теремок", по адресу г. Самара, ул. Молодогвардейская, дом 238.</p>
+        <p className={styles.text}>Дополнительную инфу ты можешь узнать в шапке над фото.</p>
+        <p className={styles.text}>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
+        <button onClick={clear}>очистить</button>
       </div>
-      <div className={styles.invite}>
-        <h3> {user.nickname}!</h3>
-        {/*<p>{user.firstName}</p>*/}
-        <p>Это приглашение на нашу свадьбу! Если ты это читаешь, значит ты в списке тех, с кем мы хотим разделить наш особенный день!</p>
-      </div>
-      <div className={styles.question}>
-        <input type="radio" name="" id=""/>
-        <input type="radio" name="" id=""/>
-        <input type="radio" name="" id=""/>
-        <input type="radio" name="" id=""/>
-        <button>send</button>
-      </div>
-      <button onClick={clear}>очистить</button>
     </div>
+
+    // <div className={styles.page}>
+    // <img className={styles.img} src={flowers} alt="flowers"/>
+
+    // <div className={styles.content}>
+    // <h1 className={styles.header}>Привет!</h1>
+    // <p className={styles.text}>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
+    // Для этого введи свое имя и&nbsp;фамилию полностью.
+    // </p>
+    // <InputForm
+    //       onButtonSubmit={onButtonSubmit}
+    //     />
+    //   </div>
+    //
+    // </div>
   );
 };
 

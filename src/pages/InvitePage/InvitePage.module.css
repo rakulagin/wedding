@@ -1,25 +1,42 @@
 .page {
-    font-size: 18px;
+    margin: 200px auto 0;
+    max-width: 768px;
+    -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+    box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+}
+
+.menu {
+    background-image: url(../../img/smooth-white-stucco-wall.jpg);
+    background-size: cover;
+    height: 50px;
+}
+
+.img {
+    width: 100%;
+}
+
+.content {
+    padding: 30px 30px 70px;
+    background-image: url(../../img/smooth-white-stucco-wall.jpg);
+    background-size: cover;
 }
 
 .header {
-    height: 50px;
-    background-color: #b56c52;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.photo {
-
+.text {
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
-img {
-    object-fit: contain;
-}
+@media (max-width: 768px) {
+    .page {
+        margin-top: 0;
+    }
 
-.invite {
-    background-color: lightgreen;
+    .content {
+        min-height: 100vh;
+    }
 }
-
-.question {
-    background-color: teal;
-}
-

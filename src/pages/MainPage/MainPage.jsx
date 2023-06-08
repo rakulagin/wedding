@@ -54,7 +54,6 @@ const MainPage = () => {
             onButtonSubmit={onButtonSubmit}
           />
         </div>
-
       </div>
     </>
   );
