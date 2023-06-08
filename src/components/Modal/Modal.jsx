@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
-import './Modal.css'
+import React, {useState} from 'react';
 
-const Modal = () => {
-  const [isActive, setIsActive] = useState(false);
+import tgLogo from '../../img/telegram_logo_icon.png'
 
-  const toggleModal = () => {
-    setIsActive(!isActive);
-  };
+import styles from './Modal.module.css'
+
+const Modal = ({isActive, setActive}) => {
 
   return (
-    <div>
-      <button onClick={toggleModal}>Открыть модальное окно</button>
+    <>
       {isActive && (
-        <div className="modal-container">
-          <div className="modal-content">
-            {/* Содержимое модального окна */}
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut deserunt dicta facilis fugit magni neque sit ullam, veniam? Adipisci aperiam autem et ex molestias officia ratione reiciendis repellendus voluptatum?</p>
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            <p className={styles.text}>
+              Ой! Мы&nbsp;не&nbsp;нашли тебя в&nbsp;нашем списке.
+              Проверь, правильно&nbsp;ли ты&nbsp;вводишь имя и&nbsp;фамилию,
+              либо свяжись со&nbsp;мной в&nbsp;Telegram.
+            </p>
+            <div className={styles.buttonsWrp}>
+              <a href="https://t.me/ramzimamzi" target="_blank">
+                <img src={tgLogo} alt=""/>
+              </a>
+              <button className={styles.button} onClick={()=>setActive(false)}>OK</button>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
