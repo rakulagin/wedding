@@ -27,12 +27,11 @@ const InvitePage = () => {
       return navigate('/')
     }
     setUser(savedUser)
-  }, [])
+  }, [navigate])
 
   return (
     <div className={styles.page}>
       <div className={styles.menu}>
-
       </div>
       <img className={styles.img} src={`http://backend.rakulagin.com${user.img}`} alt="наше фото"/>
       <div className={styles.content}>
@@ -47,21 +46,6 @@ const InvitePage = () => {
         <button onClick={clear}>очистить</button>
       </div>
     </div>
-
-    // <div className={styles.page}>
-    // <img className={styles.img} src={flowers} alt="flowers"/>
-
-    // <div className={styles.content}>
-    // <h1 className={styles.header}>Привет!</h1>
-    // <p className={styles.text}>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
-    // Для этого введи свое имя и&nbsp;фамилию полностью.
-    // </p>
-    // <InputForm
-    //       onButtonSubmit={onButtonSubmit}
-    //     />
-    //   </div>
-    //
-    // </div>
   );
 };
 
