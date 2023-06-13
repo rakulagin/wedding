@@ -6,6 +6,7 @@ import DataContext from "../../UserInfoContext";
 import styles from "./InvitePage.module.css"
 import flowers from "../../img/flowers.png";
 import InputForm from "../../components/InputForm/InputForm";
+import Interview from "../../components/Interview/Interview";
 
 
 const InvitePage = () => {
@@ -44,6 +45,7 @@ const InvitePage = () => {
         <p className={styles.text}>Дополнительную инфу ты можешь узнать в шапке над фото.</p>
         <p className={styles.text}>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
         <button onClick={clear}>очистить</button>
+        <Interview/>
       </div>
     </div>
   );

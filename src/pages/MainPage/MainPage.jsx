@@ -11,7 +11,7 @@ import Modal from "../../components/Modal/Modal";
 
 const MainPage = () => {
 
-  const [isActive, setActive] = useState(false);
+  const [isModalActive, setModalActive] = useState(false);
   const navigate = useNavigate()
 
   const onButtonSubmit = (data) => {
@@ -19,7 +19,7 @@ const MainPage = () => {
       axios.post('http://backend.rakulagin.com/invite', data)
         .then((data) => {
           if (!data.data._id) {
-            setActive(true)
+            setModalActive(true)
             return console.log('не найден')
           }
           localStorage.setItem('user', JSON.stringify({...data.data, auth: true}))
@@ -40,8 +40,8 @@ const MainPage = () => {
   return (
     <>
       <Modal
-        isActive={isActive}
-        setActive={setActive}
+        isActive={isModalActive}
+        setActive={setModalActive}
       />
       <div className={styles.page}>
         <img className={styles.img} src={flowers} alt="flowers"/>
