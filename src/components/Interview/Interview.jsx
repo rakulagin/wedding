@@ -2,6 +2,7 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import axios, {post} from "axios";
 
+import styles from './Interview.module.css'
 import questions from '../../questions.json'
 
 const Interview = () => {
@@ -21,23 +22,25 @@ const Interview = () => {
     //   .then(data => console.log(data))
   }
 
-console.log(errors)
+// console.log(errors)
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit(onSubmit)}>
 
         {questions.map((question, index) =>
-          <div key={index}>
-            <h2>{question.question}</h2>
+          <div key={index}
+          className={styles.block}>
+            <h2 className={styles.header}>{question.question}</h2>
             {question.value.map((value, id) => (
-              <label key={id}>
+              <label key={id} className={styles.label}>
                 <input
+                  className={styles.input}
                   type="radio"
                   value={value}
                   {...register(question.name, {required: true})}
                 />
-                <span>{question.answers[id]}</span>
+                <span className={styles.span}>{question.answers[id]}</span>
               </label>
             ))}
             {errors[index] && <p>Обязательное поле</p>}
@@ -78,7 +81,7 @@ console.log(errors)
           disabled={!isValid}
         />
       </form>
-    </div>
+    </>
   );
 };
 
