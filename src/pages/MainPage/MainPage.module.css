@@ -1,19 +1,5 @@
-.page {
-    margin: 0 auto;
-    max-width: 768px;
-    /*max-width: 45%;*/
-    -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
-    box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
-}
-
 .img {
     width: 100%;
-}
-
-.content {
-    padding: 30px 30px 70px;
-    background-image: url(../../img/smooth-white-stucco-wall.jpg);
-    background-size: cover;
 }
 
 .header {
@@ -24,22 +10,4 @@
 .text {
     margin-bottom: 20px;
     line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-
-    body {
-        align-items: start;
-    }
-
-    .page {
-        margin-top: 0;
-        max-width: 70%;
-        /*min-height: 100%;*/
-    }
-
-    .content {
-        /*min-height: 100vh;*/
-        min-height: 100%;
-    }
 }

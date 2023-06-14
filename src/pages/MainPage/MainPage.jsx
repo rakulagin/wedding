@@ -43,9 +43,9 @@ const MainPage = () => {
         isActive={isModalActive}
         setActive={setModalActive}
       />
-      <div className={styles.page}>
+      <div className="page">
         <img className={styles.img} src={flowers} alt="flowers"/>
-        <div className={styles.content}>
+        <div className='content'>
           <h1 className={styles.header}>Привет!</h1>
           <p className={styles.text}>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
             Для этого введи свое имя и&nbsp;фамилию полностью.

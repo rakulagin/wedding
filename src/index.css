@@ -19,7 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   background-image: url(./img/fon-mramor.png);
   background-size: cover;
   display: flex;
@@ -27,19 +27,46 @@ body {
   align-items: center;
 }
 
-/*.page {*/
-/*  margin: 200px auto 0;*/
-/*  max-width: 768px;*/
-/*  -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);*/
-/*  box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);*/
-/*}*/
+.page {
+  margin: 0 auto;
+  max-width: 768px;
+  -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+  box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+}
 
-/*@media (max-width: 768px) {*/
+.content {
+  padding: 30px 30px 70px;
+  /*background-image: url(../../img/smooth-white-stucco-wall.jpg);*/
+  background-image: url(./img/smooth-white-stucco-wall.jpg);
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+
+  body {
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 70%;
+    margin-top: 100px;
+    /*display: flex;*/
+  }
+
+  /*.content {*/
+  /*  min-height: 100vh;*/
+  /*}*/
+}
+
+@media (min-width: 1023px) {
+  .page {
+    max-width: 50%;
+  }
+}
+
+/*@media (min-width: 1023px) {*/
 /*  .page {*/
-/*    margin-top: 0;*/
-/*  }*/
-
-/*  .content {*/
-/*    min-height: 100vh;*/
+/*    max-width: 50%;*/
 /*  }*/
 /*}*/
+
