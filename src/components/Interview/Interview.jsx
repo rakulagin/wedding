@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import axios, {post} from "axios";
+import axios from "axios";
+
+import {useNavigate} from "react-router-dom";
 
 import styles from './Interview.module.css'
 import questions from '../../questions.json'
@@ -8,21 +10,29 @@ import questions from '../../questions.json'
 const Interview = () => {
 
   const {register, handleSubmit, formState: {errors, isValid}} = useForm({mode: "onChange"});
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
-    const savedUser = JSON.parse(localStorage.getItem('user'))
-
+    const localstorageUser = JSON.parse(localStorage.getItem('user'))
+    if (!localstorageUser) {
+      return navigate('/')
+    }
     const newObj = {
-      ...savedUser, ...data
+      ...data, answered: true
     };
-
-    console.log(newObj)
-
-    // axios.patch(`http://backend.rakulagin.com/question/${savedUser._id}`, newObj)
-    //   .then(data => console.log(data))
+    axios.patch(`http://backend.rakulagin.com/update/${localstorageUser._id}`, newObj)
+      .then(res => {
+        localStorage.setItem('user', JSON.stringify(res.data))
+      })
+    navigate('/invite')
   }
 
-// console.log(errors)
+  useEffect(() => {
+    const localstorageUser = JSON.parse(localStorage.getItem('user'))
+    if (!localstorageUser) {
+      return navigate('/')
+    }
+  }, []);
 
   return (
     <div className='page'>

@@ -1,10 +1,11 @@
 import React from "react";
 import {Routes, Route} from 'react-router-dom'
 
-
 import MainPage from "./pages/MainPage/MainPage";
 import InvitePage from "./pages/InvitePage/InvitePage";
 import Interview from "./components/Interview/Interview";
+
+import './app.css'
 
 // import Layout from "./components/Layout/Layout";
 

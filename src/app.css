@@ -1,0 +1,73 @@
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.page {
+    margin: 0 auto;
+    max-width: 768px;
+    -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+    box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+    background-image: url(./img/smooth-white-stucco-wall.jpg);
+    background-size: cover;
+}
+
+.content {
+    /*padding: 30px 30px 70px;*/
+}
+
+.btn {
+    width: 140px;
+    height: 60px;
+    /*background-color: #c5afd5;*/
+    color: #4b4b4b;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn--min {
+    height: 30px;
+    width: 70px;
+    font-size: 11px;
+}
+
+.btn--purple {
+    background-color: #c5afd5;
+}
+
+.btn--purple:active {
+    background-color: #9077a8;
+}
+
+.btn--orange {
+    background-color: #e7b6ae;
+}
+
+.btn--orange:active {
+    background-color: #b18680;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+
+
+/*@media (min-width: 769px) {*/
+
+/*  body {*/
+/*    min-height: 100vh;*/
+/*  }*/
+
+/*  .page {*/
+/*    max-width: 650px;*/
+/*    margin-top: 100px;*/
+/*    margin-bottom: 100px;*/
+/*    !*display: flex;*!*/
+/*  }*/
+/*}*/

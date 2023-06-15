@@ -16,12 +16,11 @@ const MainPage = () => {
 
   const onButtonSubmit = (data) => {
     try {
-      axios.post('http://backend.rakulagin.com/invite', data)
+      axios.post('http://backend.rakulagin.com/find', data)
         .then((res) => {
           if (!res.data._id) {
             return setModalActive(true)
           }
-          console.log('axios post data mainPage',res.data)
           localStorage.setItem('user', JSON.stringify({...res.data}))
           navigate('/invite')
         })
