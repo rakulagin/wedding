@@ -5,24 +5,61 @@
 
 .page {
     margin: 0 auto;
-    max-width: 768px;
+    max-width: 900px;
     -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
     box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
     background-image: url(./img/smooth-white-stucco-wall.jpg);
     background-size: cover;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.content {
+    padding-bottom: 60px;
+}
+
+.img {
+    width: 100%;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+    box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+}
+
+.title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.text {
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .content {
     /*padding: 30px 30px 70px;*/
 }
 
+.buttons__wrp {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn {
     width: 140px;
     height: 60px;
-    /*background-color: #c5afd5;*/
     color: #4b4b4b;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 18px;

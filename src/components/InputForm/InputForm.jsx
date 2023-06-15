@@ -10,9 +10,7 @@ const InputForm = ({onButtonSubmit}) => {
 
   return (
     <form
-      className={styles.form}
       onSubmit={handleSubmit(onButtonSubmit)}>
-
       <input
         placeholder="Имя"
         className={styles.input}
@@ -24,7 +22,7 @@ const InputForm = ({onButtonSubmit}) => {
         className={styles.input}
         {...register("surName")}
       />
-      <button className={styles.button} type="submit" >отправить</button>
+      <button className='btn btn--purple' type="submit" >отправить</button>
     </form>
   );
 };

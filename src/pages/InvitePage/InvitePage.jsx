@@ -4,7 +4,6 @@ import axios from "axios";
 
 import DataContext from "../../UserInfoContext";
 
-import styles from "./InvitePage.module.css"
 import AnswerNo from "../../components/AnswerNo/AnswerNo";
 import AnswerYes from "../../components/AnswerYes/AnswerYes";
 
@@ -43,6 +42,18 @@ const InvitePage = () => {
     navigate('/interview')
   }
 
+  const changeDecision = () => {
+    const answer = {accept: ""}
+    setUserInfo(prevState => ({
+      ...prevState,
+      ...answer
+    }))
+    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+      .then(res => {
+        localStorage.setItem('user', JSON.stringify(res.data))
+      })
+  }
+
   useEffect(() => {
     const localstorageUser = JSON.parse(localStorage.getItem('user'))
     if (!localstorageUser) {
@@ -52,47 +63,46 @@ const InvitePage = () => {
   }, [])
 
   return (
-    <div className='page'>
+    <>
       <div className="container">
-        <div className={styles.menu}>
-          <button className="btn btn--min btn--purple">я пойду!</button>
-          <button className="btn btn--min" onClick={clear}>очистить</button>
+        <div className='header'>
           <button className="btn btn--min btn--purple">Меню</button>
+          {/*<button className="btn btn--min" onClick={clear}>очистить</button>*/}
+          {userInfo.accept === "no" && <button className="btn btn--min btn--purple" onClick={changeDecision}>я пойду!</button>}
         </div>
       </div>
-      <img className={styles.img} src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
+      <img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
       <div className='container'>
+        <div className="content">
         {userInfo.accept === "yes" ? (
           <AnswerYes/>
         ) : userInfo.accept === "no" ? (
           <AnswerNo/>
         ) : (
           <>
-            <h3 className={styles.header}> {userInfo.nickname}!</h3>
-            <p className={styles.text}>Это приглашение на нашу свадьбу! Если ты это читаешь, значит ты в списке тех, с
-              кем мы хотим разделить наш особенный день!</p>
-            <p className={styles.text}>
-              Мы ждем тебя с ТВОЕЙ ВТОРОЙ ПОЛОВИНКОЙ 11 августа, в пятницу, в ЗАГС Октябрьского района, "Теремок", по
-              адресу г. Самара, ул. Молодогвардейская, дом 238.</p>
-            <p className={styles.text}>Дополнительную инфу ты можешь узнать в шапке над фото.</p>
-            <p className={styles.text}>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
-            <h3 className={styles.question}>Главный вопрос: сможешь ли ты прийти?</h3>
-            <div className={styles.buttons}>
+            <h2 className='title'> {userInfo.nickname}!</h2>
+            <h3 className='subtitle'>Мы решили пожениться!</h3>
+            <p className='text'>Это приглашение на нашу свадьбу! Если ты его читаешь, значит ты в списке тех, с кем мы хотим разделить наш особенный день!</p>
+            <p className='text'>Свадьба состоится 11 августа. Дополнительную инфу ты найдешь в шапке на фото.</p>
+            <p className='text'>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
+            <h3 className='subtitle'>Главный вопрос: сможешь ли ты прийти?</h3>
+            <div className='buttons__wrp'>
               <button
-                className={styles.button1}
+                className='btn btn--purple'
                 onClick={answerYes}
               >да
               </button>
               <button
-                className={styles.button2}
+                className='btn btn--orange'
                 onClick={answerNo}
               >нет
               </button>
             </div>
           </>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

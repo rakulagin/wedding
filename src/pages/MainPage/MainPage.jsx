@@ -4,8 +4,6 @@ import axios from 'axios'
 
 import flowers from "../../img/flowers.png";
 
-import styles from './MainPage.module.css'
-
 import InputForm from "../../components/InputForm/InputForm";
 import Modal from "../../components/Modal/Modal";
 
@@ -42,11 +40,11 @@ const MainPage = () => {
         isActive={isModalActive}
         setActive={setModalActive}
       />
-      <div className="page">
-        <img className={styles.img} src={flowers} alt="flowers"/>
-        <div className='content'>
-          <h1 className={styles.header}>Привет!</h1>
-          <p className={styles.text}>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
+      <img className='img' src={flowers} alt="flowers"/>
+      <div className='container'>
+        <div className="content">
+          <h1 className='title'>Привет!</h1>
+          <p className='text'>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
             Для этого введи свое имя и&nbsp;фамилию полностью.
           </p>
           <InputForm

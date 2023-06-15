@@ -1,13 +1,13 @@
 .form {
-    /*width: 100px;*/
+    padding-bottom: 60px;
 }
 
 .input {
     margin-bottom: 20px;
     border: none;
     height: 35px;
-    width: 300px;
-    border-radius: 10px;
+    width: 285px;
+    border-radius: 5px;
     padding-left: 10px;
     font-size: 18px;
     font-weight: bold;
