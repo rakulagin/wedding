@@ -17,12 +17,12 @@ const MainPage = () => {
   const onButtonSubmit = (data) => {
     try {
       axios.post('http://backend.rakulagin.com/invite', data)
-        .then((data) => {
-          if (!data.data._id) {
-            setModalActive(true)
-            return console.log('не найден')
+        .then((res) => {
+          if (!res.data._id) {
+            return setModalActive(true)
           }
-          localStorage.setItem('user', JSON.stringify({...data.data, auth: true}))
+          console.log('axios post data mainPage',res.data)
+          localStorage.setItem('user', JSON.stringify({...res.data}))
           navigate('/invite')
         })
     } catch (err) {

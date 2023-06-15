@@ -4,16 +4,18 @@ import {Routes, Route} from 'react-router-dom'
 
 import MainPage from "./pages/MainPage/MainPage";
 import InvitePage from "./pages/InvitePage/InvitePage";
-// import Layout from "./components/Layout/Layout";
+import Interview from "./components/Interview/Interview";
 
+// import Layout from "./components/Layout/Layout";
 
 function App() {
 
   return (
     <Routes>
       {/*<Route path='/' element={<Layout/>}>*/}
-        <Route index element={<MainPage/>}/>
-        <Route path="invite" element={<InvitePage/>}/>
+      <Route index element={<MainPage/>}/>
+      <Route path="invite" element={<InvitePage/>}/>
+      <Route path="interview" element={<Interview/>}/>
       {/*</Route>*/}
     </Routes>
   );

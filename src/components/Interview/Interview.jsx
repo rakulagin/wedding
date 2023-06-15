@@ -25,8 +25,8 @@ const Interview = () => {
 // console.log(errors)
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className='page'>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 
         {questions.map((question, index) =>
           <div key={index}
@@ -47,41 +47,15 @@ const Interview = () => {
           </div>
         )}
 
-        {/*сможешь ли прийти*/}
-        {/*<div className="input__block">*/}
-        {/*  <h2 className="input__question">Главный вопрос: сможешь ли ты прийти?</h2>*/}
-        {/*  <label className="input__radio">*/}
-        {/*    <input*/}
-        {/*      className="input__radio"*/}
-        {/*      type="radio"*/}
-        {/*      value="true"*/}
-        {/*      {...register("accept", {required: true})}*/}
-        {/*    />*/}
-        {/*    <span className="input__answer">Да</span>*/}
-        {/*  </label>*/}
-
-        {/*  <label className="input__radio">*/}
-        {/*    <input*/}
-        {/*      className="input__radio"*/}
-        {/*      type="radio"*/}
-        {/*      value="false"*/}
-        {/*      {...register("accept", {required: true})}*/}
-        {/*    />*/}
-        {/*    <span className="input__answer">Нет</span>*/}
-        {/*  </label>*/}
-        {/*  {errors.accept && <p>Обязательное поле</p>}*/}
-        {/*</div>*/}
-
-
-
         <input
-          className={isValid ? "btn btn-white-blue" : "btn btn-disabled"}
+          // className={isValid ? "btn btn-white-blue" : "btn btn-disabled"}
+          className={isValid ? styles.button : styles.disabled}
           type="submit"
-          value="Продолжить"
+          value="отправить"
           disabled={!isValid}
         />
       </form>
-    </>
+    </div>
   );
 };
 

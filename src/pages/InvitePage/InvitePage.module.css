@@ -1,6 +1,6 @@
 .menu {
-    background-image: url(../../img/smooth-white-stucco-wall.jpg);
-    background-size: cover;
+    /*background-image: url(../../img/smooth-white-stucco-wall.jpg);*/
+    /*background-size: cover;*/
     height: 50px;
 }
 
@@ -47,7 +47,7 @@
 .button2 {
     width: 140px;
     height: 60px;
-    background-color: #d5b4af;
+    background-color: #e7b6ae;
     color: #4b4b4b;
     border: none;
     border-radius: 10px;
