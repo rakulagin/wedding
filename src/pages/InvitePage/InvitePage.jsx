@@ -67,7 +67,7 @@ const InvitePage = () => {
       <div className="container">
         <div className='header'>
           <button className="btn btn--min btn--purple">Меню</button>
-          {/*<button className="btn btn--min" onClick={clear}>очистить</button>*/}
+          <button className="btn btn--min" onClick={clear}>очистить</button>
           {userInfo.accept === "no" && <button className="btn btn--min btn--purple" onClick={changeDecision}>я пойду!</button>}
         </div>
       </div>
@@ -82,10 +82,10 @@ const InvitePage = () => {
           <>
             <h2 className='title'> {userInfo.nickname}!</h2>
             <h3 className='subtitle'>Мы решили пожениться!</h3>
-            <p className='text'>Это приглашение на нашу свадьбу! Если ты его читаешь, значит ты в списке тех, с кем мы хотим разделить наш особенный день!</p>
-            <p className='text'>Свадьба состоится 11 августа. Дополнительную инфу ты найдешь в шапке на фото.</p>
+            <p className='text'>Это приглашение на&nbsp;нашу свадьбу! Если ты&nbsp;его читаешь, значит ты&nbsp;в&nbsp;списке тех, с&nbsp;кем мы&nbsp;хотим разделить наш особенный день!</p>
+            <p className='text'>Свадьба состоится 11&nbsp;августа. Дополнительную инфу ты&nbsp;найдешь в&nbsp;шапке на&nbsp;фото.</p>
             <p className='text'>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
-            <h3 className='subtitle'>Главный вопрос: сможешь ли ты прийти?</h3>
+            <h3 className='subtitle'>Главный вопрос: сможешь&nbsp;ли ты&nbsp;прийти?</h3>
             <div className='buttons__wrp'>
               <button
                 className='btn btn--purple'

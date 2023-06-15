@@ -1,3 +1,7 @@
+.form {
+    padding-top: 60px;
+}
+
 .block {
     margin-bottom: 30px;
     background-color: #ececec;
@@ -5,11 +9,6 @@
     padding: 15px;
     -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
     box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
-}
-
-.header {
-    margin-bottom: 15px;
-    line-height: 1;
 }
 
 .label {
@@ -33,33 +32,4 @@
     width: 100%;
     text-align: center;
     padding: 10px;
-}
-
-.button {
-    width: 140px;
-    height: 60px;
-    background-color: #c5afd5;
-    color: #4b4b4b;
-    border: none;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.button:active {
-    background-color: #9077a8;
-}
-
-.disabled {
-    width: 140px;
-    height: 60px;
-    background-color: #e7b6ae;
-    opacity: 0.7;
-    color: #4b4b4b;
-    border: none;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
 }

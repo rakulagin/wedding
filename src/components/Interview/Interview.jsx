@@ -9,7 +9,7 @@ import questions from '../../questions.json'
 
 const Interview = () => {
 
-  const {register, handleSubmit, formState: {errors, isValid}} = useForm({mode: "onChange"});
+  const {register, handleSubmit, formState: {errors, isValid}} = useForm({mode: "onSubmit"});
   const navigate = useNavigate()
 
   const onSubmit = (data) => {
@@ -34,14 +34,16 @@ const Interview = () => {
     }
   }, []);
 
-  return (
-    <div className='page'>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+  console.log(errors)
 
+  return (
+    <div className='container'>
+      <div className="content">
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         {questions.map((question, index) =>
           <div key={index}
           className={styles.block}>
-            <h2 className={styles.header}>{question.question}</h2>
+            <h3 className='subtitle'>{question.question}</h3>
             {question.value.map((value, id) => (
               <label key={id} className={styles.label}>
                 <input
@@ -53,18 +55,19 @@ const Interview = () => {
                 <span className={styles.span}>{question.answers[id]}</span>
               </label>
             ))}
-            {errors[index] && <p>Обязательное поле</p>}
           </div>
         )}
 
-        <input
-          // className={isValid ? "btn btn-white-blue" : "btn btn-disabled"}
-          className={isValid ? styles.button : styles.disabled}
-          type="submit"
-          value="отправить"
-          disabled={!isValid}
-        />
+        <div className="btn--wrp">
+          <input
+            className={isValid ? 'btn btn--purple' : 'btn btn-disabled'}
+            type="submit"
+            value="отправить"
+            disabled={!isValid}
+          />
+        </div>
       </form>
+      </div>
     </div>
   );
 };
