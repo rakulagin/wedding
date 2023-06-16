@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
@@ -6,11 +6,13 @@ import DataContext from "../../UserInfoContext";
 
 import AnswerNo from "../../components/AnswerNo/AnswerNo";
 import AnswerYes from "../../components/AnswerYes/AnswerYes";
+import Menu from "../../components/Menu/Menu";
 
 const InvitePage = () => {
 
   const navigate = useNavigate()
   const {userInfo, setUserInfo} = useContext(DataContext)
+  const [isMenuVisible, setMenuVisible] = useState(false);
 
   const clear = () => {
     localStorage.clear()
@@ -54,6 +56,10 @@ const InvitePage = () => {
       })
   }
 
+  const toggleMenu = () => {
+    setMenuVisible(!isMenuVisible)
+  }
+
   useEffect(() => {
     const localstorageUser = JSON.parse(localStorage.getItem('user'))
     if (!localstorageUser) {
@@ -66,11 +72,12 @@ const InvitePage = () => {
     <>
       <div className="container">
         <div className='header'>
-          <button className="btn btn--min btn--purple">Меню</button>
+          <button className="btn btn--min btn--purple" onClick={toggleMenu}>Меню</button>
           <button className="btn btn--min" onClick={clear}>очистить</button>
           {userInfo.accept === "no" && <button className="btn btn--min btn--purple" onClick={changeDecision}>я пойду!</button>}
         </div>
       </div>
+      {isMenuVisible && <Menu/>}
       <img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
       <div className='container'>
         <div className="content">
@@ -83,8 +90,8 @@ const InvitePage = () => {
             <h2 className='title'> {userInfo.nickname}!</h2>
             <h3 className='subtitle'>Мы решили пожениться!</h3>
             <p className='text'>Это приглашение на&nbsp;нашу свадьбу! Если ты&nbsp;его читаешь, значит ты&nbsp;в&nbsp;списке тех, с&nbsp;кем мы&nbsp;хотим разделить наш особенный день!</p>
-            <p className='text'>Свадьба состоится 11&nbsp;августа. Дополнительную инфу ты&nbsp;найдешь в&nbsp;шапке на&nbsp;фото.</p>
-            <p className='text'>Чтобы нам было легче организовать праздник, пройди, пожалуйста, опрос.</p>
+            <p className='text'>Свадьба состоится 11&nbsp;августа. Дополнительную инфу ты&nbsp;найдешь в&nbsp;шапке над&nbsp;фото.</p>
+            <p className='text'>Чтобы нам было легче организовать наш особенный день, пройди, пожалуйста, опрос.</p>
             <h3 className='subtitle'>Главный вопрос: сможешь&nbsp;ли ты&nbsp;прийти?</h3>
             <div className='buttons__wrp'>
               <button

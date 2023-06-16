@@ -1,16 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {useForm} from "react-hook-form";
-import axios from "axios";
-
 import {useNavigate} from "react-router-dom";
+
+import axios from "axios";
 
 import styles from './Interview.module.css'
 import questions from '../../questions.json'
+import DataContext from "../../UserInfoContext";
 
 const Interview = () => {
 
   const {register, handleSubmit, formState: {errors, isValid}} = useForm({mode: "onSubmit"});
   const navigate = useNavigate()
+  const {userInfo, setUserInfo} = useContext(DataContext)
 
   const onSubmit = (data) => {
     const localstorageUser = JSON.parse(localStorage.getItem('user'))
@@ -23,6 +25,7 @@ const Interview = () => {
     axios.patch(`http://backend.rakulagin.com/update/${localstorageUser._id}`, newObj)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
+        setUserInfo(res.data)
       })
     navigate('/invite')
   }
@@ -33,8 +36,6 @@ const Interview = () => {
       return navigate('/')
     }
   }, []);
-
-  console.log(errors)
 
   return (
     <div className='container'>

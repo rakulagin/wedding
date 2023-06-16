@@ -3,7 +3,7 @@
      "id" : 1,
      "question" : "Мы ждем вас в ЗАГС к 12.30 или в ресторан к 17.00?",
      "answers" : ["В ЗАГС", "В ресторан"],
-     "value": ["ZAGS", "restaurant"],
+     "value": ["zags", "restaurant"],
      "name": "place"
    },
   {
