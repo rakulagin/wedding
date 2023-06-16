@@ -1,7 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import DataContext from "../../UserInfoContext";
-import {post} from "axios";
 
 
 const AnswerYes = () => {
@@ -60,8 +59,9 @@ const AnswerYes = () => {
 
   useEffect(() => {
     createTranslateObj(userInfo);
-  }, []);
+  }, [userInfo]);
 
+  console.log(userInfo)
 
   return (
     <div>
@@ -72,7 +72,7 @@ const AnswerYes = () => {
       {translateInfo && <p className='text'>Мы постараемся выбрать для тебя {translateInfo.vine} и {translateInfo.spirit}, и закатим крутую
         вечеринку!</p>}
       <p className='text'>Изменить свои предпочтения ты сможешь по ссылке в шапке над фото</p>
-      {translateInfo.secondDay && <p>{translateInfo.secondDay}</p>}
+      {translateInfo.secondDay && <p className='text'>{translateInfo.secondDay}</p>}
     </div>
   );
 };
