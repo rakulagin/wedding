@@ -88,11 +88,11 @@ const InvitePage = () => {
       {/*<img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>*/}
 
       <div className="content">
-        {userInfo.accept === "yes" && userInfo.answered ? (
+        {userInfo.accept === "yes" ? (
           <AnswerYes/>
         ) : userInfo.accept === "no" ? (
           <AnswerNo/>
-        ) : !userInfo.answered || userInfo.accept==='' ? (
+        ) : (
           <>
             <h2 className='title'> {userInfo.nickname}!</h2>
             <h3 className='subtitle'>Мы решили пожениться!</h3>
@@ -118,7 +118,7 @@ const InvitePage = () => {
               </button>
             </div>
           </>
-        ) : null}
+        ) }
       </div>
     </>
   );
