@@ -15,7 +15,7 @@ const AnswerYes = () => {
       <p className='text'>Ждем тебя {userInfo.pair} <br/> к {time} по адресу {address}.</p>
       <p className='text'>Мы постараемся выбрать для тебя {userInfo.vine} и {userInfo.spirit}. Это будет самая крутая вечеринка!</p>
       {userInfo.secondDay && <p className='text'>{userInfo.secondDay}</p>}
-      <p className='text'>Изменить свои предпочтения ты сможешь по ссылке в шапке над фото.</p>
+      <p className='text'>Изменить свои предпочтения ты сможешь, нажав кнопку.</p>
     </div>
   );
 };

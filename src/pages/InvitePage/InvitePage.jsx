@@ -65,15 +65,12 @@ const InvitePage = () => {
     if (!localstorageUser) {
       return navigate('/')
     }
-    if(!localstorageUser.answered) {
-
     setUserInfo(prevState => ({
       ...prevState,
       ...localstorageUser
     }))
-    }
     console.log('-----useeffect-----')
-  }, [navigate])
+  }, [])
 
   console.log('userinfo invitepage', userInfo)
 
