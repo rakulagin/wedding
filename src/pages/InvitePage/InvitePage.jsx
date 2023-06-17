@@ -6,18 +6,12 @@ import DataContext from "../../UserInfoContext";
 
 import AnswerNo from "../../components/AnswerNo/AnswerNo";
 import AnswerYes from "../../components/AnswerYes/AnswerYes";
-import Menu from "../../components/Menu/Menu";
 
 const InvitePage = () => {
 
   const navigate = useNavigate()
   const {userInfo, setUserInfo} = useContext(DataContext)
-  const [isMenuVisible, setMenuVisible] = useState(false);
 
-  const clear = () => {
-    localStorage.clear()
-    navigate('/')
-  }
 
   const answerNo = () => {
     const answer = {accept: 'no'}
@@ -44,7 +38,7 @@ const InvitePage = () => {
     navigate('/interview')
   }
 
-  const changeDecision = () => {
+  const changeAccept = () => {
     const answer = {accept: ""}
     setUserInfo(prevState => ({
       ...prevState,
@@ -56,58 +50,72 @@ const InvitePage = () => {
       })
   }
 
-  const toggleMenu = () => {
-    setMenuVisible(!isMenuVisible)
+  const changeInterview = () => {
+    navigate('/interview')
   }
+
 
   useEffect(() => {
     const localstorageUser = JSON.parse(localStorage.getItem('user'))
     if (!localstorageUser) {
       return navigate('/')
     }
-    setUserInfo(localstorageUser)
-  }, [])
+    if(!localstorageUser.answered) {
+
+    setUserInfo(prevState => ({
+      ...prevState,
+      ...localstorageUser
+    }))
+    }
+    console.log('-----useeffect-----')
+  }, [navigate])
+
+  console.log('userinfo invitepage', userInfo)
 
   return (
     <>
-      <div className="container">
-        <div className='header'>
-          <button className="btn btn--min btn--purple" onClick={toggleMenu}>Меню</button>
-          <button className="btn btn--min" onClick={clear}>очистить</button>
-          {userInfo.accept === "no" && <button className="btn btn--min btn--purple" onClick={changeDecision}>я пойду!</button>}
-        </div>
+      <div
+        className='image img__wrp'
+        style={{backgroundImage: "url('http://backend.rakulagin.com" + userInfo.img + "')"}}
+      >
+        {userInfo.answered && userInfo.accept === "yes"  && <button onClick={changeInterview} className="btn btn--on-image btn--purple">пройти опрос снова</button>}
+        {userInfo.accept === "no" && <button className="btn btn--on-image btn--purple" onClick={changeAccept}>я пойду!</button>}
       </div>
-      {isMenuVisible && <Menu/>}
-      <img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
-      <div className='container'>
-        <div className="content">
-        {userInfo.accept === "yes" ? (
+
+      {/*<img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>*/}
+
+      <div className="content">
+        {userInfo.accept === "yes" && userInfo.answered ? (
           <AnswerYes/>
         ) : userInfo.accept === "no" ? (
           <AnswerNo/>
-        ) : (
+        ) : !userInfo.answered || userInfo.accept==='' ? (
           <>
             <h2 className='title'> {userInfo.nickname}!</h2>
             <h3 className='subtitle'>Мы решили пожениться!</h3>
-            <p className='text'>Это приглашение на&nbsp;нашу свадьбу! Если ты&nbsp;его читаешь, значит ты&nbsp;в&nbsp;списке тех, с&nbsp;кем мы&nbsp;хотим разделить наш особенный день!</p>
-            <p className='text'>Свадьба состоится 11&nbsp;августа. Дополнительную инфу ты&nbsp;найдешь в&nbsp;шапке над&nbsp;фото.</p>
+            <p className='text'>
+              <span className='text--accent'>Это приглашение на&nbsp;нашу свадьбу! </span>
+              Если ты&nbsp;его читаешь, значит
+              ты&nbsp;в&nbsp;списке тех, с&nbsp;кем мы&nbsp;хотим разделить наш особенный день!</p>
+            <p className='text'>
+              <span className='text--accent'>Свадьба состоится 11&nbsp;августа. </span>
+            </p>
             <p className='text'>Чтобы нам было легче организовать наш особенный день, пройди, пожалуйста, опрос.</p>
             <h3 className='subtitle'>Главный вопрос: сможешь&nbsp;ли ты&nbsp;прийти?</h3>
             <div className='buttons__wrp'>
               <button
-                className='btn btn--purple'
+                className='btn btn--purple btn--wide'
                 onClick={answerYes}
               >да
               </button>
               <button
-                className='btn btn--orange'
+                className='btn btn--orange btn--wide'
                 onClick={answerNo}
               >нет
               </button>
             </div>
           </>
-        )}
-        </div>
+        ) : null}
       </div>
     </>
   );

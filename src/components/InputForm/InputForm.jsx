@@ -9,7 +9,7 @@ const InputForm = ({onButtonSubmit}) => {
   const { register, handleSubmit } = useForm();
 
   return (
-    <form
+    <form className={styles.form}
       onSubmit={handleSubmit(onButtonSubmit)}>
       <input
         placeholder="Имя"

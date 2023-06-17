@@ -30,6 +30,20 @@ const Interview = () => {
     navigate('/invite')
   }
 
+  const changeAccept = () => {
+    const answer = {accept: 'no'}
+    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+      .then(res => {
+        localStorage.setItem('user', JSON.stringify({...res.data}))
+        setUserInfo(prevState => ({
+          ...prevState,
+          ...answer
+        }))
+        }
+      )
+    navigate('/invite')
+  }
+
   useEffect(() => {
     const localstorageUser = JSON.parse(localStorage.getItem('user'))
     if (!localstorageUser) {
@@ -37,8 +51,9 @@ const Interview = () => {
     }
   }, []);
 
+  console.log('interview =====>>>>>',userInfo)
+
   return (
-    <div className='container'>
       <div className="content">
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         {questions.map((question, index) =>
@@ -59,17 +74,20 @@ const Interview = () => {
           </div>
         )}
 
-        <div className="btn--wrp">
+        <div className="buttons__wrp">
           <input
-            className={isValid ? 'btn btn--purple' : 'btn btn-disabled'}
+            className={!isValid ? 'btn btn--purple btn--disabled' : 'btn btn--purple'}
             type="submit"
             value="отправить"
             disabled={!isValid}
           />
+          <div>
+            {userInfo.answered && <button className='btn btn--orange' onClick={changeAccept}>Я не смогу пойти</button>}
+          </div>
+
         </div>
       </form>
       </div>
-    </div>
   );
 };
 

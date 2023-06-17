@@ -1,14 +1,9 @@
 .form {
-    padding-top: 60px;
+
 }
 
 .block {
-    margin-bottom: 30px;
-    background-color: #ececec;
-    border-radius: 15px;
-    padding: 15px;
-    -webkit-box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
-    box-shadow: 9px 10px 15px 5px rgba(0,0,0,0.58);
+    margin-bottom: 20px;
 }
 
 .label {
@@ -20,16 +15,17 @@
 }
 
 .input:checked + .span {
-    background-color: #c5afd5;
+    background-color: #a57bdf;
     transition: 0.3s linear;
     color: white;
 }
 
 .span {
+    cursor: pointer;
     margin-bottom: 10px;
-    background-color: #e7b6ae;
+    background-color: #e5c9a0;
     border-radius: 15px;
     width: 100%;
     text-align: center;
-    padding: 10px;
+    padding: 15px 10px;
 }

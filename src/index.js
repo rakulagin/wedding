@@ -8,20 +8,7 @@ import App from './App';
 
 function Main() {
   const [userInfo, setUserInfo] = useState(
-    {
-      id: '',
-      firstName: '',
-      surName: '',
-      img: '',
-      accept: '',
-      pair: '',
-      place: '',
-      car: '',
-      capacity: '',
-      vine: '',
-      spirit: '',
-
-    }
+    {}
   )
 
   return (

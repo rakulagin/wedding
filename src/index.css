@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url("./fonts/raleway/raleway-v28-cyrillic_latin-regular.woff2"),
+  url("./fonts/raleway/raleway-v28-cyrillic_latin-800.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  padding: 30px;
+}
+
+
 *,
 *::before,
 *::after {
@@ -12,17 +25,24 @@ input {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 24px;
+  /*line-height: 32px;*/
+  /*letter-spacing: 1px;*/
+  font-family: -apple-system,Raleway, rsans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
-  /*min-height: 100vh;*/
+  min-height: calc(100vh - 60px);
   background-image: url(./img/fon-mramor.png);
   background-size: cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+body, input, button {
+  font-family: Raleway;
+}
+
+

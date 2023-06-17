@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'
 
-import flowers from "../../img/flowers.png";
-
 import InputForm from "../../components/InputForm/InputForm";
 import Modal from "../../components/Modal/Modal";
 
@@ -32,7 +30,7 @@ const MainPage = () => {
     if (user) {
       navigate('/invite')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <>
@@ -40,17 +38,14 @@ const MainPage = () => {
         isActive={isModalActive}
         setActive={setModalActive}
       />
-      <img className='img' src={flowers} alt="flowers"/>
-      <div className='container'>
-        <div className="content">
-          <h1 className='title'>Привет!</h1>
-          <p className='text'>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело.
-            Для этого введи свое имя и&nbsp;фамилию полностью.
-          </p>
-          <InputForm
-            onButtonSubmit={onButtonSubmit}
-          />
-        </div>
+      <div className='image bg-flowers'></div>
+      <div className="content">
+        <h1 className='title'>Привет!</h1>
+        <p className='text'>С&nbsp;тобой говорят Рома и&nbsp;Алена. Нам надо узнать, с&nbsp;кем имеем дело. Для этого введи свое имя и&nbsp;фамилию полностью.
+        </p>
+        <InputForm
+          onButtonSubmit={onButtonSubmit}
+        />
       </div>
     </>
   );

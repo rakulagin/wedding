@@ -1,36 +1,20 @@
 .form {
-    padding-bottom: 60px;
+    width: 320px;
+    text-align: center;
 }
 
 .input {
+    width: 100%;
+    font-size: 16px;
+    border: 3px solid transparent;
+    padding: 10px 25px;
+    background-color: #ffecc1;
     margin-bottom: 20px;
-    border: none;
-    height: 35px;
-    width: 285px;
     border-radius: 5px;
-    padding-left: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    opacity: 0.7;
 }
 
 .input:focus {
     outline: none;
-    border: 3px solid #bb9fcf;
-}
-
-.button {
-    width: 140px;
-    height: 60px;
-    background-color: #c5afd5;
-    color: #4b4b4b;
-    border: none;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.button:active {
-    background-color: #9077a8;
+    border: 3px solid #a57bdf;
+    transition: .4s;
 }
