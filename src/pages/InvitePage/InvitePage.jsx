@@ -24,7 +24,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -36,7 +36,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -49,7 +49,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -94,7 +94,7 @@ const InvitePage = () => {
           <AnswerNo/>
         ) : (
           <>
-            <h2 className='title'> {userInfo.nickname}!</h2>
+            <h2 className='title'>Привет, {userInfo.nickname}!</h2>
             <h3 className='subtitle'>Мы решили пожениться!</h3>
             <p className='text'>
               <span className='text--accent'>Это приглашение на&nbsp;нашу свадьбу! </span>

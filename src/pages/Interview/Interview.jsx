@@ -22,7 +22,7 @@ const Interview = () => {
     const newObj = {
       ...data, answered: true
     };
-    axios.patch(`http://backend.rakulagin.com/update/${localstorageUser._id}`, newObj)
+    axios.patch(`http://backend.rakulagin.com/users/${localstorageUser._id}`, newObj)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
         setUserInfo(res.data)
@@ -32,7 +32,7 @@ const Interview = () => {
 
   const changeAccept = () => {
     const answer = {accept: 'no'}
-    axios.patch(`http://backend.rakulagin.com/update/${userInfo._id}`, answer)
+    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify({...res.data}))
         setUserInfo(prevState => ({

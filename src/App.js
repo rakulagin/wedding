@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 
 import MainPage from "./pages/MainPage/MainPage";
 import InvitePage from "./pages/InvitePage/InvitePage";
-import Interview from "./components/Interview/Interview";
+import Interview from "./pages/Interview/Interview";
 
 import './app.css'
 
