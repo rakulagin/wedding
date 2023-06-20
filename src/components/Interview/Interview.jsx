@@ -76,13 +76,13 @@ const Interview = () => {
 
         <div className="buttons__wrp">
           <input
-            className={!isValid ? 'btn btn--purple btn--disabled' : 'btn btn--purple'}
+            className={!isValid ? 'btn btn--min btn--purple btn--disabled' : 'btn btn--min btn--purple'}
             type="submit"
             value="отправить"
             disabled={!isValid}
           />
           <div>
-            {userInfo.answered && <button className='btn btn--orange' onClick={changeAccept}>Я не смогу пойти</button>}
+            {userInfo.answered && <button className='btn btn--min btn--orange' onClick={changeAccept}>Я не смогу пойти</button>}
           </div>
 
         </div>
