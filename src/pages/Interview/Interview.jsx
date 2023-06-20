@@ -51,8 +51,6 @@ const Interview = () => {
     }
   }, []);
 
-  console.log('interview =====>>>>>',userInfo)
-
   return (
       <div className="content">
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

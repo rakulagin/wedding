@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
@@ -69,10 +69,7 @@ const InvitePage = () => {
       ...prevState,
       ...localstorageUser
     }))
-    console.log('-----useeffect-----')
   }, [])
-
-  console.log('userinfo invitepage', userInfo)
 
   return (
     <>
