@@ -74,13 +74,13 @@ const InvitePage = () => {
   return (
     <>
       <div
-        className='image img__wrp'
+        className='img__wrp'
         // style={{backgroundImage: "url('http://backend.rakulagin.com" + userInfo.img + "')"}}
       >
         <img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
         {userInfo.answered && userInfo.accept === "yes"  && <button onClick={changeInterview} className="btn btn--on-image btn--purple">пройти опрос снова</button>}
         {userInfo.accept === "no" && <button className="btn btn--on-image btn--purple" onClick={changeAccept}>я пойду!</button>}
-        <button className='btn--disabled' onClick={clear}>CLEAR</button>
+        {/*<button className='btn--disabled' onClick={clear}>CLEAR</button>*/}
       </div>
 
       {/*<img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>*/}
