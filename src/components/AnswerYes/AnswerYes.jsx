@@ -12,7 +12,7 @@ const AnswerYes = () => {
     <div>
       {/*<h2 className='title'>Отлично, {userInfo.firstName}!</h2>*/}
       <h2 className='title'>{userInfo.nickname}</h2>
-      <p className='text'>Мы рады что ты согласился разделить с нами день рождения нашей семьи! </p>
+      <p className='text'>Мы рады что ты разделишь с нами день рождения нашей семьи! </p>
       <p className='text text--accent'>Ждем тебя {userInfo.pair} <br/> к {time} по адресу {address}.</p>
       <p className='text'>Мы постараемся выбрать для тебя {userInfo.vine} и {userInfo.spirit}. Это будет самая крутая вечеринка!</p>
       {userInfo.secondDay && <p className='text'>{userInfo.secondDay}</p>}
