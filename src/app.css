@@ -87,6 +87,19 @@
     right: 15px;
 }
 
+.btn--clear {
+    text-transform: uppercase;
+    padding: 10px 25px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 10px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white
+}
+
 .btn--min {
     font-size: 12px;
     padding: 17px 25px;
