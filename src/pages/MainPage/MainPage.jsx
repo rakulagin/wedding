@@ -12,7 +12,7 @@ const MainPage = () => {
 
   const onButtonSubmit = (data) => {
     try {
-      axios.post('http://backend.rakulagin.com/find', data)
+      axios.post('http://backend.rakulagin.com/user', data)
         .then((res) => {
           if (!res.data._id) {
             return setModalActive(true)
