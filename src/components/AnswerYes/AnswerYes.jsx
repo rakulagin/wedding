@@ -15,7 +15,7 @@ const AnswerYes = () => {
       <p className='text'>Мы рады что ты разделишь с нами день рождения нашей семьи! </p>
       <p className='text text--accent'>Ждем тебя 11 августа {userInfo.pair} <br/> к {time} по адресу {address}.</p>
       <p className='text'>Мы постараемся выбрать для тебя {userInfo.vine} и {userInfo.spirit}. Это будет самая крутая вечеринка!</p>
-      {userInfo.secondDay && <p className='text'>{userInfo.secondDay} <a href="https://go.2gis.com/0k25d">ссылке</a> </p>}
+      {userInfo.secondDay && <p className='text'>{userInfo.secondDay} <a href="https://go.2gis.com/0k25d" target="blank">ссылке</a> </p>}
       <p className='text'>Изменить свои предпочтения ты сможешь, нажав кнопку.</p>
     </div>
   );
