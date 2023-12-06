@@ -24,7 +24,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
+    axios.patch(`https://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -36,7 +36,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
+    axios.patch(`https://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -49,7 +49,7 @@ const InvitePage = () => {
       ...prevState,
       ...answer
     }))
-    axios.patch(`http://backend.rakulagin.com/users/${userInfo._id}`, answer)
+    axios.patch(`https://backend.rakulagin.com/users/${userInfo._id}`, answer)
       .then(res => {
         localStorage.setItem('user', JSON.stringify(res.data))
       })
@@ -74,7 +74,7 @@ const InvitePage = () => {
   return (
     <>
       <div className='img__wrp'>
-        <img className='img' src={`http://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
+        <img className='img' src={`https://backend.rakulagin.com${userInfo.img}`} alt="наше фото"/>
         {userInfo.answered && userInfo.accept === "yes"  && <button onClick={changeInterview} className="btn btn--on-image btn--purple">пройти опрос снова</button>}
         {userInfo.accept === "no" && <button className="btn btn--on-image btn--purple" onClick={changeAccept}>я пойду!</button>}
         <button className="btn--clear" onClick={clear}>Выход</button>
